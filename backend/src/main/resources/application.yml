@@ -1,0 +1,28 @@
+spring:
+  application:
+    name: shipyard-api
+
+  datasource:
+    url: ${DB_URL:jdbc:postgresql://localhost:5432/shipyard}
+    username: ${DB_USERNAME:shipyard}
+    password: ${DB_PASSWORD:shipyard_dev}
+    driver-class-name: org.postgresql.Driver
+    hikari:
+      connection-init-sql: SET TIME ZONE 'Asia/Kolkata'
+
+  jpa:
+    hibernate:
+      ddl-auto: validate
+    open-in-view: false
+    show-sql: false
+    properties:
+      hibernate.jdbc.time_zone: Asia/Kolkata
+
+server:
+  port: 8080
+
+management:
+  endpoints:
+    web:
+      exposure:
+        include: health,info
