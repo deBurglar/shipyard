@@ -1,4 +1,7 @@
 spring:
+  config:
+    import: optional:file:.env[.properties]
+
   application:
     name: shipyard-api
 
@@ -17,6 +20,11 @@ spring:
     show-sql: false
     properties:
       hibernate.jdbc.time_zone: Asia/Kolkata
+
+app:
+  jwt:
+    secret: ${JWT_SECRET}
+    expiration-ms: ${JWT_EXPIRATION_MS:900000}
 
 server:
   port: 8080
